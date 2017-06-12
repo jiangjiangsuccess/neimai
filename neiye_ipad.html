@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内页-ipad</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/neiye_ipad.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+<div class="header">
+    <span></span>
+    <span>商品详情</span>
+</div>
+<section class="topBanner clear">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/ipad_01.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/ipad_01.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/ipad_01.png" alt=""></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<div class="intro">
+    <div class="intro_txt">
+        <a href="#">
+            <p>Apple iPad 平板电脑 9.7英寸（128G WLAN版/A9 芯片/Retina显示屏/Touch ID技术 MPGW2CH/A）金色
+            </p>
+            <div class="intro_origin">
+                <span>¥<span class="fzml price_r">3080.00</span></span>
+            </div>
+            <div class="intro_discount">原价¥3488</div>
+        </a>
+    </div>
+</div>
+<!--商品参数部分-->
+<div class="detail">
+    <div class="ETab">
+        <div class="tab_main">
+            <ul class="clear">
+                <li class="current">商品</li>
+                <li class="parameter">参数</li>
+            </ul>
+        </div>
+        <div class="tab_con" >
+            <img src="images/ipad.jpg">
+            <img src="images/ipad_a.png">
+
+        </div>
+        <div class="Ptable" style="display:none">
+            <div class="Ptable_item">
+                <h3>CPU/GPU</h3>
+                <dl>
+                    <dt>处理器型号</dt>
+                    <dd>苹果A5</dd>
+                    <dt>处理器主频</dt>
+                    <dd>1GHz</dd>
+                    <dt>处理器核心</dt>
+                    <dd>双核心</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>存储设备</h3>
+                <dl>
+                    <dt>存储容量</dt>
+                    <dd>32GB </dd>
+                    <dt>存储扩展</dt>
+                    <dd>不支持容量扩展</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>内存</h3>
+                <dl>
+                    <dt>内存容量</dt>
+                    <dd>8GB</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>显示屏</h3>
+                <dl>
+                    <dt>屏幕尺寸</dt>
+                    <dd>7.9英寸</dd>
+                    <dt>屏幕分辨率</dt>
+                    <dd>1024X768</dd>
+                    <dt>屏幕像素密度</dt>
+                    <dd>162PPI</dd>
+                    <dt>屏幕描述</dt>
+                    <dd>电容式触摸屏，多点式触摸屏</dd>
+                    <dt>指取设备</dt>
+                    <dd>触摸屏</dd>
+                    <dt>屏幕特性</dt>
+                    <dd>IPS屏幕，防指纹涂层</dd>
+                    <dt>支持语言</dt>
+                    <dd>支持多国语言</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>显卡</h3>
+                <dl>
+                    <dt>类型</dt>
+                    <dd>独立显卡</dd>
+                    <dt>显示芯片</dt>
+                    <dd>NVIDIA GeForce 940MX 独立显卡</dd>
+                    <dt>显存容量</dt>
+                    <dd>独立1GB</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>网络连接</h3>
+                <dl>
+                    <dt>WIFI功能</dt>
+                    <dd>支持802.11a/b/g/n无线协议</dd>
+                    <dt>网络模式</dt>
+                    <dd>不支持3G网络</dd>
+                    <dt>蓝牙功能</dt>
+                    <dd>支持，蓝牙4.0模块</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>多媒体功能</h3>
+                <dl>
+                    <dt>音效技术</dt>
+                    <dd>内置扬声器</dd>
+                    <dt>视频播放</dt>
+                    <dd>支持播放720P视频</dd>
+                    <dt>摄像头</dt>
+                    <dd>双摄像头（前置：120万像素，后置：500万像素）</dd>
+                    <dt>拍照功能</dt>
+                    <dd>面部识别，内置防抖，自动曝光，自动对焦，F2.4光圈</dd>
+                    <dt>视频录制</dt>
+                    <dd>支持录制1080P视频</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>电源参数</h3>
+                <dl>
+                    <dt>电池类型</dt>
+                    <dd>锂电池</dd>
+                    <dt>续航时间</dt>
+                    <dd>10小时左右，具体时间视使用环境而定</dd>
+                    <dt>电源适配器</dt>
+                    <dd>100V-240V 自适应交流电源供应器</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>格式支持</h3>
+                <dl>
+                    <dt>音频格式</dt>
+                    <dd>支持AAC，HE-AAC，MP3，MP3 VBR，AAX，AAX+，AIFF，WAV格式</dd>
+                    <dt>视频格式</dt>
+                    <dd>支持H.264，M4V，MP4，MOV，MPEG-4格式</dd>
+                    <dt>图片格式</dt>
+                    <dd>支持JPG，GIF，TIFF格式</dd>
+                    <dt>文本格式</dt>
+                    <dd>支持TXT，RTF，VCF格式</dd>
+                </dl>
+            </div>
+            <div class="Ptable_item">
+                <h3>按键/接口</h3>
+                <dl>
+                    <dt>音频接口</dt>
+                    <dd>3.5mm耳机接口</dd>
+                    <dt>其他接口</dt>
+                    <dd>Lightning接口</dd>
+                    <dt>功能按键</dt>
+                    <dd>Home按键，开关按键，音量按键</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!--加入购物车页面-->
+<div class="join">
+    <div class="join_number">
+        <div class="join_quantity">
+            <span class="min"></span>
+            <span class="txt text_box">1</span>
+            <span class="add"></span>
+        </div>
+        <div class="join_color">颜色分类：白色</div>
+    </div>
+    <div class="join_cart">
+        <a href="">加入购物车</a>
+    </div>
+    <div class="join_buy">
+        <a href="firmOrder.html">立即购买</a>
+    </div>
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        /*新增*/
+        autoplay:5000,/*自动播发的速度、平率*/
+        autoplayDisableOnInteraction:false/*设着手动滑动后自动播发是否停止*/
+    });
+    function heji(){
+        var price_r=$('.price_r').html();
+        var num=$('.text_box').html();
+        console.log(price_r);
+        console.log(num);
+        var sum=0;
+        sum=sum+(price_r*num);
+        sum=sum.toFixed(2);
+        console.log(sum);
+        //$('.price_t').html(sum);
+    }
+    $(document).ready(function(){
+        //获得文本框对象
+        var t = $(".txt");
+        //数量增加操作
+        $(".add").click(function(){
+            t.html(parseInt(t.html())+1);
+            heji();
+        });
+        //数量减少操作
+        $(".min").click(function(){
+            if (parseInt(t.html())==1){
+                t.html(1);
+            }else{
+                t.html(parseInt(t.html())-1);
+            }
+            heji();
+        });
+    });
+    //商品参数页面
+    $(".parameter").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".Ptable").css("display","block");
+        $(".tab_con").css("display","none");
+        $(".current").css("color","#666666").css("border-bottom","none");
+    });
+    $(".current").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".tab_con").css("display","block");
+        $(".parameter").css("color","#666666").css("border-bottom","none");
+        $(".Ptable").css("display","none");
+    });
+</script>
+</html>

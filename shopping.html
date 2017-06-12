@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车页面</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/shopping.css">
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $('.item_cb b').on('click',function(){
+                $(this).toggleClass('checked');
+                if($(this).hasClass('checked')){
+                    $('.check').addClass('checked')
+                }else{
+                    $('.check').removeClass('checked')
+                }
+                heji();
+//                $(this).parent().siblings().children('b').removeClass('checked');
+//                $('.item_cb input[type="checkbox"]').removeAttr('checked');
+//                $(this).parent().children('input[type="checkbox"]').attr('checked','checked');
+            });
+            $('.item_box b').click(function(){
+                $(this).toggleClass('checked');
+                if($('.item_box b').hasClass('checked')){
+                    $('.footer_select').addClass('checked')
+                }else{
+                    $('.footer_select').removeClass('checked')
+                }
+                heji();
+            });
+        });
+        $(function(){
+            $('.qx_txt').click(function(){
+                $('.item_cb b').toggleClass('checked');
+                if($('.item_cb b').hasClass('checked')){
+                    $('.check').addClass('checked')
+                }else{
+                    $('.check').removeClass('checked')
+                }
+                heji();
+            });
+        });
+        $(function(){
+            $('.delete_btn').click(function(){
+                $(this).parent().parent().parent().remove();
+            });
+        });
+        function heji(){
+            var zongjia=[];
+            var groupBox=document.getElementById('groupBox');
+            var checked=groupBox.getElementsByClassName('checked');
+            for(var i=0;i<checked.length;i++){
+                var num=$(checked[i]).parent().parent().parent().find('.count_num').val();
+                console.log(num);
+                var dj=$(checked[i]).parent().parent().parent().find('.price_l').html();
+                console.log(dj);
+                zongjia.push(num*dj);
+            }
+            for(var i= 0,sum=0;i<zongjia.length;i++){
+                sum=sum+zongjia[i]
+            }
+            sum=sum.toFixed(2);
+            $('.price_t').html(sum)
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+
+            // 获取所有行，对每一行设置监听
+            var lines = $(".d2");
+            var len = lines.length;
+            var lastX, lastXForMobile;
+
+            // 用于记录被按下的对象
+            var pressedObj;  // 当前左滑的对象
+            var lastLeftObj; // 上一个左滑的对象
+
+            // 用于记录按下的点
+            var start;
+
+            // 网页在移动端运行时的监听
+            for (var i = 0; i < len; ++i) {
+                lines[i].addEventListener('touchstart', function(e){
+                    lastXForMobile = e.changedTouches[0].pageX;
+                    pressedObj = this; // 记录被按下的对象
+
+                    // 记录开始按下时的点
+                    var touches = event.touches[0];
+                    start = {
+                        x: touches.pageX, // 横坐标
+                        y: touches.pageY  // 纵坐标
+                    };
+                });
+
+                lines[i].addEventListener('touchmove',function(e){
+                    // 计算划动过程中x和y的变化量
+                    var touches = event.touches[0];
+                    delta = {
+                        x: touches.pageX - start.x,
+                        y: touches.pageY - start.y
+                    };
+
+                    // 横向位移大于纵向位移，阻止纵向滚动
+                    if (Math.abs(delta.x) > Math.abs(delta.y)) {
+                        event.preventDefault();
+                    }
+                });
+
+                lines[i].addEventListener('touchend', function(e){
+                    if (lastLeftObj && pressedObj != lastLeftObj) { // 点击除当前左滑对象之外的任意其他位置
+                        $(lastLeftObj).animate({marginLeft:"0"}, 500); // 右滑
+                        lastLeftObj = null; // 清空上一个左滑的对象
+                    }
+                    var diffX = e.changedTouches[0].pageX - lastXForMobile;
+                    if (diffX < -10) {
+                        $(pressedObj).animate({marginLeft:"-2.2rem"}, 500); // 左滑
+                        lastLeftObj && lastLeftObj != pressedObj &&
+                        $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+                        lastLeftObj = pressedObj; // 记录上一个左滑的对象
+                    } else if (diffX > 10) {
+                        if (pressedObj == lastLeftObj) {
+                            $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+                            lastLeftObj = null; // 清空上一个左滑的对象
+                        }
+                    }
+                });
+            }
+
+            // 网页在PC浏览器中运行时的监听
+            for (var i = 0; i < len; ++i) {
+                $(lines[i]).bind('mousedown', function(e){
+                    lastX = e.clientX;
+                    pressedObj = this; // 记录被按下的对象
+                });
+
+                $(lines[i]).bind('mouseup', function(e){
+                    if (lastLeftObj && pressedObj != lastLeftObj) { // 点击除当前左滑对象之外的任意其他位置
+                        $(lastLeftObj).animate({marginLeft:"0"}, 500); // 右滑
+                        lastLeftObj = null; // 清空上一个左滑的对象
+                    }
+                    var diffX = e.clientX - lastX;
+                    if (diffX < -10) {
+                        $(pressedObj).animate({marginLeft:"-2.2rem"}, 500); // 左滑
+                        lastLeftObj && lastLeftObj != pressedObj &&
+                        $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+                        lastLeftObj = pressedObj; // 记录上一个左滑的对象
+                    } else if (diffX > 10) {
+                        if (pressedObj == lastLeftObj) {
+                            $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+                            lastLeftObj = null; // 清空上一个左滑的对象
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="header">
+    <span></span>
+    <span>我的购物车</span>
+    <span>编辑</span>
+</div>
+<div class="rect"></div>
+<div class="allItem">
+    <div class="allGroup">
+        <div class="allProduct">
+            <div class="item_cb">
+                <p>
+                    <b id="b1"></b><span class="qx_txt">全部商品</span>
+                </p>
+            </div>
+        </div>
+        <div id="groupBox">
+            <div class="group">
+                <div class="d1">
+                    <div class="d2">
+                        <div class="item_box">
+                            <p>
+                                <b class="check" id="b2"></b>
+                            </p>
+                        </div>
+                        <div class="item_detail">
+                            <div class="item_img">
+                                <a href="#">
+                                    <img src="images/pic_01_small.png">
+                                </a>
+                            </div>
+                            <div class="item_info">
+                                <a href="#">
+                                    <div class="item_title">
+                                        <p>
+                                            小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G
+                                            256GPCIE固态硬盘 940MX独显 FHD WIN10)银
+                                        </p>
+                                    </div>
+                                    <div class="item_sku">
+                                        <p><span>颜色:银色</span><span>规格:14寸</span></p>
+                                    </div>
+                                </a>
+                                <div class="item_pay">
+                                    <div class="item_price">
+                                        <span>¥<span  class="price_l">6888.00</span></span>
+                                    </div>
+                                    <div class="item_num">
+                                        <input class="add" name="" type="button" value="+"/>
+                                        <input class="count_num" name="" type="text" value="1"/>
+                                        <input class="min" name="" type="button" value="--"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_delete d3">
+                        <div class="delete_btn">
+                            删除
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <div class="d1">
+                    <div class="d2">
+                        <div class="item_box">
+                            <p>
+                                <b class="check" id="b2"></b>
+                            </p>
+                        </div>
+                        <div class="item_detail">
+                            <div class="item_img">
+                                <a href="#">
+                                    <img src="images/phone_small.png">
+                                </a>
+                            </div>
+                            <div class="item_info">
+                                <a href="#">
+                                    <div class="item_title">
+                                        <p>小米 红米Note4X 3GB+32GB 磨砂黑 移动联通电信4G手机
+                                        </p>
+                                    </div>
+                                    <div class="item_sku">
+                                        <p><span>颜色:黑色</span></p>
+                                    </div>
+                                </a>
+                                <div class="item_pay">
+                                    <div class="item_price">
+                                        <span>¥<span class="price_l">3888.00</span></span>
+                                    </div>
+                                    <div class="item_num">
+                                        <input class="add" name="" type="button" value="+"/>
+                                        <input class="count_num" name="" type="text" value="1"/>
+                                        <input class="min" name="" type="button" value="--"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_delete d3">
+                        <div class="delete_btn">
+                            删除
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <div class="d1">
+                    <div class="d2">
+                        <div class="item_box">
+                            <p>
+                                <b class="check" id="b2"></b>
+                            </p>
+                        </div>
+                        <div class="item_detail">
+                            <div class="item_img">
+                                <a href="#">
+                                    <img src="images/earphone.png">
+                                </a>
+                            </div>
+                            <div class="item_info">
+                                <a href="#">
+                                    <div class="item_title">
+                                        <p>小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G
+                                            256G.....
+                                        </p>
+                                    </div>
+                                    <div class="item_sku">
+                                        <p><span>颜色:银色</span><span>规格:14寸</span></p>
+                                    </div>
+                                </a>
+                                <div class="item_pay">
+                                    <div class="item_price">
+                                        <span >¥<span class="price_l">888.00</span></span>
+                                    </div>
+                                    <div class="item_num">
+                                        <input class="add" name="" type="button" value="+"/>
+                                        <input class="count_num" name="" type="text" value="1"/>
+                                        <input class="min" name="" type="button" value="--"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_delete d3">
+                        <div class="delete_btn">
+                            删除
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <div class="d1">
+                    <div class="d2">
+                        <div class="item_box">
+                            <p>
+                                <b class="check" id="b2"></b>
+                            </p>
+                        </div>
+                        <div class="item_detail">
+                            <div class="item_img">
+                                <a href="#">
+                                    <img src="images/pic_01_small.png">
+                                </a>
+                            </div>
+                            <div class="item_info">
+                                <a href="#">
+                                    <div class="item_title">
+                                        <p>小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G
+                                            256GPCIE固态硬盘 940MX独显 FHD WIN10)银
+                                        </p>
+                                    </div>
+                                    <div class="item_sku">
+                                        <p><span>颜色:银色</span><span>规格:14寸</span></p>
+                                    </div>
+                                </a>
+                                <div class="item_pay">
+                                    <div class="item_price">
+                                        <span >¥<span class="price_l">6888.00</span></span>
+                                    </div>
+                                    <div class="item_num">
+                                        <input class="add" name="" type="button" value="+"/>
+                                        <input class="count_num" name="" type="text" value="1"/>
+                                        <input class="min" name="" type="button" value="--"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_delete d3">
+                        <div class="delete_btn">
+                            删除
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_count">
+        <span class="footer_select check"></span>
+        <p class="footer_price">总计：<span  style="color:#f23030">¥<span class="price_t" style="margin-left:5px;">0.00</span></span>
+        </p>
+    </div>
+    <div class="footer_pay">
+            立即付款
+    </div>
+</div>
+<!--付款界面-->
+<div class="page">
+    <div class="payment_page">
+        <div class="payment_page_header">
+            <span class="close"></span>
+            <span>请输入支付密码</span>
+        </div>
+        <div class="payment_page_main">
+            <div>精锐内卖网</div>
+            <div style="font-size:1.58rem"> <span>¥<span class="price_t" style="margin-left:5px">0.00</span></span></div>
+        </div>
+        <div class="payment_page_method">
+            <span></span>
+            <span style="padding-left:1.7rem">零钱</span>
+            <span></span>
+        </div>
+        <div class="pwd-box">
+            <input type="tel" maxlength="6" class="pwd-input" id="pwd-input">
+            <div class="fake-box">
+                <div>
+                    <input type="password">
+                </div>
+                <div>
+                    <input type="password">
+                </div>
+                <div>
+                    <input type="password">
+                </div>
+                <div>
+                    <input type="password">
+                </div>
+                <div>
+                    <input type="password">
+                </div>
+                <div>
+                    <input type="password">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(document).ready(function() {
+        //获得文本框对象
+        //var t = $(".count_num");
+
+        //初始化数量为1,并失效减
+        $('.min').attr('disabled', true);
+        //数量增加操作
+        $(".add").click(function () {
+            var count = parseInt($(this).next().val());
+            console.log(count);
+            $(this).next().val(count + 1);
+            if (parseInt($(this).next().val())!= 1) {
+                $('.min').attr('disabled', false);
+            }
+            heji();
+        });
+        //数量减少操作
+        $(".min").click(function () {
+            var count_m = parseInt($(this).prev().val());
+            console.log(count_m);
+            $(this).prev().val(count_m - 1);
+            if (parseInt($(this).prev().val()) == 1) {
+                $('.min').attr('disabled', true);
+            }
+            heji();
+        });
+    });
+    //支付页面
+    $('.page').css("display","none");
+    $(".footer_pay").click(function(){
+        $(".page").css("display","block");
+    });
+    //关闭支付页面
+    $(".payment_page_header .close").click(function(){
+        $(".page").css("display","none");
+    });
+    //密码框
+    var $input = $(".fake-box input");
+    $("#pwd-input").on("input", function() {
+        var pwd = $(this).val().trim();
+        for (var i = 0, len = pwd.length; i < len; i++) {
+            $input.eq("" + i + "").val(pwd[i]);
+        }
+        $input.each(function() {
+            var index = $(this).index();
+            if (index >= len) {
+                $(this).val("");
+            }
+        });
+        if (len == 6) {
+            /*这里就判断密码正确或者不正确后的事情*/
+        }
+    });
+</script>
+</html>

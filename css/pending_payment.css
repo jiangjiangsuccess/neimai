@@ -1,0 +1,331 @@
+/*header部分*/
+.header{
+    width:100%;
+    height:1.73rem;
+    line-height:1.73rem;
+    background-color:#2f9fea;
+    text-align: center;
+    position: relative;
+}
+.header>span:first-child{
+    background:url(../images/icon_1.png) no-repeat;
+    display:inline-block;
+    width:0.43rem;
+    height:0.7rem;
+    background-size:100% 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.35rem;
+    left: 0.53rem;
+}
+.header>span:last-child{
+    color:#ffffff;
+    font-size:0.72rem;
+
+}
+.pend_pay{
+    width:100%;
+    height:3.37rem;
+    background-color:#fff2f2;
+    position:relative;
+}
+.pend_pay .pend_left{
+    margin-left:1.55rem;
+    float:left;
+    padding:0.84rem 0;
+}
+.pend_pay .pend_right{
+    float:right;
+    background:url(../images/logo.png) no-repeat;
+    background-size:100% 100%;
+    width:3.1rem;
+    height:3rem;
+    margin-top:0.4rem;
+    position:absolute;
+    bottom:0;
+    right:0.8rem;
+}
+/*收货人信息*/
+.consignee{
+    width:100%;
+    height:1.82rem;
+    padding:0.79rem 0;
+}
+.consignee .con_man{
+    font-size:0.64rem;
+}
+.consignee .con_man>p{
+    float:left;
+    margin-left:1.55rem;
+    width:9.53rem;
+    font-weight:bold;
+}
+.consignee .con_man .con_tel{
+    color:#666666;
+    float:left;
+}
+.consignee .con_address{
+    font-size:0.6rem;
+    margin-top:0.3rem;
+}
+.consignee .con_address .icon_2{
+    background:url(../images/icon_2.png) no-repeat;
+    display:inline-block;
+    width:0.53rem;
+    height:0.66rem;
+    background-size:100% 100%;
+    float:left;
+    margin-right:5px;
+    margin-left:0.8rem;
+}
+.consignee .con_address p{
+    float:left;
+    color:#666666;
+}
+.line{
+    width:100%;
+    height:0.4rem;
+    background-color:#f6f6f6;
+}
+/*商品信息*/
+.main .main_ware{
+    width:100%;
+    height:5rem;
+    overflow: hidden;
+    margin-top:0.8rem;
+}
+.main_ware .ware_pic{
+    width:30%;
+    float:left;
+    margin-left:0.5rem;
+}
+.main_ware .ware_pic a{
+    display:inline-block;
+}
+.ware_pic .pic_01{
+    width:4rem;
+    height:3.3rem;
+}
+.main_ware .ware_intro{
+    width:63%;
+    float:left;
+    font-size:0.6rem;
+    color:#333333;
+}
+.main_ware .ware_intro a{
+    display:inline-block;
+}
+.ware_intro p{
+    height:2.62rem;
+}
+.ware_intro .ware_price{
+    color:#f23030;
+}
+.ware_price .price_l span{
+    font-size:0.81rem;
+    margin-left: 5px;
+}
+.ware_price .shopping_car{
+    display:inline-block;
+    background:url(../images/shopping_car.png) no-repeat;
+    width:0.725rem;
+    height:0.576rem;
+    background-size:100% 100%;
+    margin-left:5.3rem;
+}
+.buy_num{
+    width:100%;
+    height:2rem;
+    line-height:2rem;
+    border-top:1px solid #ededed;
+    font-size:0.6rem;
+    color:#333333;
+    padding-left:0.6rem;
+}
+.main .buy_num .num_l,.main .buy_num .num_r{
+    float:left;
+}
+.main .buy_num .num_l{
+    width:10.24rem;
+}
+.main .buy_num .num_r{
+    text-align: right;
+    width:4.3rem;
+}
+.main .bgwhf6{
+    background:#f6f6f6;
+    width:100%;
+    height:5.3rem;
+}
+/*footer部分*/
+.footer{
+    width:100%;
+    height:2.2rem;
+    background-color:#ffffff;
+    line-height:2.2rem;
+    position: fixed;
+    bottom: 0;
+    font-size:0.6rem;
+    border-top:1px solid #c2c1c1;
+}
+.footer .pay_amount{
+    float:right;
+    color:#f23030;
+    font-size:0.6rem;
+}
+.footer .submit_order,.footer .cancell_order{
+    float:right;
+    width:5.3rem;
+    height:100%;
+    text-align: center;
+}
+.footer .submit_order{
+    background-color:#f23030;
+}
+.footer .cancell_order{
+    background-color:#eeeeef;
+}
+.footer .submit_order a{
+    display:inline-block;
+    color:#ffffff;
+}
+.cancell_order a{
+    display:inline-block;
+    color:#666666;
+}
+/*付款界面*/
+.page{
+    display:none;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    position:absolute;
+    top:0;
+    left:0;
+}
+.payment_page{
+    width:11.9rem;
+    height:11.2rem;
+    background-color:#ffffff;
+    position:absolute;
+    top:4.5rem;
+    left:50%;
+    margin-left:-5.95rem;
+}
+.payment_page .payment_page_header{
+    width:100%;
+    height:2.13rem;
+    text-align:center;
+    font-size:0.73rem;
+    line-height:2.13rem;
+    font-weight:bold;
+    position:relative;
+    border-bottom:1px solid #75ca77;
+}
+
+.payment_page .payment_page_header span.close{
+    background:url(../images/close.png) no-repeat;
+    display:inline-block;
+    width:0.51rem;
+    height:0.51rem;
+    background-size:100% 100%;
+    position:absolute;
+    top:50%;
+    margin-top:-0.25rem;
+    left:0.64rem;
+}
+.payment_page .payment_page_main,.payment_page .payment_page_method{
+    width:90%;
+    border-bottom:1px solid #d4d4d4;
+    margin:0 auto;
+    font-size:0.64rem;
+}
+.payment_page .payment_page_main{
+    height:2.48rem;
+    text-align:center;
+    padding:0.68rem 0;
+    color:#333333;
+}
+.payment_page .payment_page_method{
+    height:1.92rem;
+    line-height:1.92rem;
+    color:#666666;
+    position:relative;
+}
+.payment_page_method span:first-child{
+    background:url(../images/pocket.png) no-repeat;
+    background-size:100% 100%;
+    display:inline-block;
+    width:1.15rem;
+    height:1.15rem;
+    position:absolute;
+    top:50%;
+    margin-top:-0.575rem;
+}
+.payment_page_method span:last-child{
+    background:url(../images/icon_3.png) no-repeat;
+    background-size:100% 100%;
+    display:inline-block;
+    width:0.34rem;
+    height:0.55rem;
+    position:absolute;
+    top:50%;
+    margin-top:-0.275rem;
+    right:0;
+}
+/*密码框*/
+.pwd-box{
+    width:10.7rem;
+    padding-left: 1px;
+    position: relative;
+    /*  border-bottom: 1px solid #9f9fa0;*/
+    /* border-left: none;
+     border-right: none;*/
+    border-radius: 3px;
+    margin:0.7rem auto;
+}
+.pwd-box input[type="tel"]{
+    width: 99%;
+    height: 1.8rem;
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    font-size: 18px;
+    opacity: 0;
+    z-index: 1;
+    letter-spacing: 35px;
+
+}
+.fake-box{
+    overflow: hidden;
+}
+.fake-box div input{
+    border:none;
+    width:100%;
+    height:1.7rem;
+    position: absolute;
+    left:0px;
+    top:0px;
+    text-align: center;
+    font-size: 1.64rem;
+}
+.fake-box div{
+    box-sizing: border-box;
+    width: 1.783rem;
+    height: 1.8rem;
+    border: 1px solid #9f9fa0;
+    border-right: 1px solid #e5e5e5;
+    border-left:none;
+    text-align: center;
+    float: left;
+    position: relative;
+}
+.fake-box div:first-child{
+    border-left:1px solid #9f9fa0;
+}
+.fake-box div:last-child{
+
+    border-right:1px solid #9f9fa0;
+}

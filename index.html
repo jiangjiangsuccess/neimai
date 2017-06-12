@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精锐内卖网</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="search_box">
+            <span class="search"></span>
+            <input type="text" class="keyword" placeholder="输入关键字">
+            <span class="delete"></span>
+        </div>
+        <div class="sure">确定</div>
+    </div>
+    <section class="topBanner clear">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/banner_01.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner_01.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner_01.png" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="images/new.png" alt="">
+                    <div>
+                        <span>新品上市</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/hot.png" alt="">
+                    <div>
+                        <span>热卖产品</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="all.html">
+                    <img src="images/all.png" alt="">
+                    <div>
+                        <span>全部商品</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="miaosha.html">
+                    <img src="images/second.png" alt="">
+                    <div>
+                        <span>秒杀活动</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="h043"></div>
+    <div class="main">
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="#">
+                    <img src="images/pic_01.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_1.html">
+                    <p>小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G
+                        256GPCIE固态硬盘 940MX独显 FHD WIN10)银
+                    </p>
+                </a>
+                <div class="ware_price">
+                    <span class="price_l">¥<span>6888.00</span></span>
+                    <span class="shopping_car"></span>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="#">
+                    <img src="images/pic_02.png" class="pic_02" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="#">
+                    <p>vivo X9 全网通 4GB+64GB 活力蓝 移动联通电信4G手机 双卡双待</p>
+                </a>
+                <div class="ware_price">
+                    <span class="price_l">¥<span>4888.00</span></span>
+                    <span class="shopping_car"></span>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="#">
+                    <img src="images/pic_03.png" class="pic_03" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="#">
+                    <p>Beats Solo2 头戴式耳机 - 白色 独奏者第二代 带麦 MH8X2PA/B</p>
+                </a>
+                <div class="ware_price">
+                    <span class="price_l">¥<span>1488.00</span></span>
+                    <span class="shopping_car"></span>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+    <!--加入购物车页面-->
+    <div class="join">
+        <div class="join_number">
+            <div class="join_quantity">
+                <span class="min"></span>
+                <span class="txt">1</span>
+                <span class="add"></span>
+            </div>
+            <div class="join_color">颜色分类：白色</div>
+        </div>
+        <div class="join_cart">
+            <a href="#">加入购物车</a>
+        </div>
+        <div class="join_buy">
+            <a href="#">立即购买</a>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <div class="index">
+                <a href="index.html">
+                    <div></div>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="shopping_cart">
+                <a href="shopping.html">
+                    <div></div>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="draft">
+                <a href="orderManagement.html">
+                    <div></div>
+                    <span>我的订单</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        /*新增*/
+        autoplay:3000,/*自动播发的速度、平率*/
+        autoplayDisableOnInteraction:false/*设着手动滑动后自动播发是否停止*/
+    });
+    //解决placeholder的兼容性
+    $(function(){
+        //判断浏览器是否支持placeholder属性
+        supportPlaceholder='placeholder'in document.createElement('input'),
+            placeholder=function(input){
+                var text = input.attr('placeholder'),
+                    defaultValue = input.defaultValue;
+                if(!defaultValue){
+                    input.val(text).addClass("phcolor");
+                }
+                input.focus(function(){
+                    if(input.val() == text){
+                        $(this).val("");
+                    }
+                });
+                input.blur(function(){
+                    if(input.val() == ""){
+                        $(this).val(text).addClass("phcolor");
+                    }
+                });
+                //输入的字符不为灰色
+                input.keydown(function(){
+                    $(this).removeClass("phcolor");
+                });
+            };
+        //当浏览器不支持placeholder属性时，调用placeholder函数
+        if(!supportPlaceholder){
+            $('input').each(function(){
+                text = $(this).attr("placeholder");
+                if($(this).attr("type") == "text"){
+                    placeholder($(this));
+                }
+            });
+        }
+    });
+    //购物车
+    $(".shopping_car").click(function(){
+        $(".join").css("display","block");
+    });
+    //加减
+    $(document).ready(function(){
+        //获得文本框对象
+        var t = $(".txt");
+        //数量增加操作
+        $(".add").click(function(){
+            t.html(parseInt(t.html())+1);
+        });
+        //数量减少操作
+        $(".min").click(function(){
+            if (parseInt(t.html())==1){
+                t.html(1);
+            }else{
+                t.html(parseInt(t.html())-1);
+            }
+        });
+    });
+    //搜索框删除关键字
+   $('.delete').click(function(){
+       $('.keyword').val("");
+   });
+</script>
+</html>

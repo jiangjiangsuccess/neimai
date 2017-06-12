@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内页-sb</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/neiye_sb.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+<div class="header">
+    <span></span>
+    <span>商品详情</span>
+</div>
+<section class="topBanner clear">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/shubiao.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/shubiao.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/shubiao.jpg" alt=""></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<div class="intro">
+    <div class="intro_txt">
+        <a href="#">
+            <p>小米(MI)
+                小米便携鼠标 无线蓝牙4.0 男女生家用/笔记本电脑办公/鼠标 银色
+            </p>
+            <div class="intro_origin">
+                <span>¥<span class="fzml price_r">309.00</span></span>
+            </div>
+            <div class="intro_discount">原价¥348</div>
+        </a>
+    </div>
+</div>
+<!--商品参数部分-->
+<div class="detail">
+    <div class="ETab">
+        <!--商品-->
+        <div class="tab_main">
+            <ul class="clear">
+                <li class="current">商品</li>
+                <li class="parameter">参数</li>
+            </ul>
+        </div>
+        <div class="tab_con" >
+            <img src="images/shubiao_1.png" alt="">
+        </div>
+        <!--参数-->
+        <div class="Ptable" style="display:none">
+            <div class="Ptable_item">
+                <div class="item_img">
+                    <img src="images/xiaomi_1.png" alt="">
+                </div>
+                <h3>产品参数</h3>
+                <dl>
+                    <dt>主体重量 </dt>
+                    <dd>77.5g（含电池）</dd>
+                    <dt>CMITIT ID  </dt>
+                    <dd>  2016DP4530</dd>
+                    <dt>探测距离 </dt>
+                    <dd> ≤10m</dd>
+                    <dt>连接方式 </dt>
+                    <dd> 蓝牙 4.0、RF 2.4GHz</dd>
+                    <dt>工作方式  </dt>
+                    <dd>激光传感器</dd>
+                    <dt>输出参数</dt>
+                    <dd> 3V3mA</dd>
+                    <dt>适用系统</dt>
+                    <dd>Windows 7* / 8 / 10</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--加入购物车页面-->
+<div class="join">
+    <div class="join_number">
+        <div class="join_quantity">
+            <span class="min"></span>
+            <span class="txt text_box">1</span>
+            <span class="add"></span>
+        </div>
+        <div class="join_color">颜色分类：白色</div>
+    </div>
+    <div class="join_cart">
+        <a href="">加入购物车</a>
+    </div>
+    <div class="join_buy">
+        <a href="">立即购买</a>
+    </div>
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        /*新增*/
+        autoplay:5000,/*自动播发的速度、平率*/
+        autoplayDisableOnInteraction:false/*设着手动滑动后自动播发是否停止*/
+    });
+    function heji(){
+        var price_r=$('.price_r').html();
+        var num=$('.text_box').html();
+        console.log(price_r);
+        console.log(num);
+        var sum=0;
+        sum=sum+(price_r*num);
+        sum=sum.toFixed(2);
+        console.log(sum);
+        //$('.price_t').html(sum);
+    }
+    $(document).ready(function(){
+        //获得文本框对象
+        var t = $(".txt");
+        //数量增加操作
+        $(".add").click(function(){
+            t.html(parseInt(t.html())+1);
+            heji();
+        });
+        //数量减少操作
+        $(".min").click(function(){
+            if (parseInt(t.html())==1){
+                t.html(1);
+            }else{
+                t.html(parseInt(t.html())-1);
+            }
+            heji();
+        });
+    });
+    //商品参数页面
+    $(".parameter").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".Ptable").css("display","block");
+        $(".tab_con").css("display","none");
+        $(".current").css("color","#666666").css("border-bottom","none");
+    });
+    $(".current").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".tab_con").css("display","block");
+        $(".parameter").css("color","#666666").css("border-bottom","none");
+        $(".Ptable").css("display","none");
+    });
+</script>
+</html>

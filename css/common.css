@@ -1,0 +1,19 @@
+html,body,p,h1,h2,h3,h4,h5,h6,form,input,textarea,select,button,fieldset,legend,img,ul,ol,li,dl,dt,dd,th,td,pre,blockquote{margin:0;padding:0}
+html{height:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+html,body{font-size:20px;}
+body{background-color:#ffffff;
+    -webkit-overflow-scolling: touch;
+    font-family: Microsoft Yahei;
+}
+.clear:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+@media screen and (max-width:320px){
+    body{
+        -webkit-text-size-adjust: none;
+    }
+}
+a{text-decoration: none;color:#333;}
+ul{list-style: none;}

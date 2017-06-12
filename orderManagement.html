@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单管理</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/orderManagement.css">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+    <div class="header">
+        <span class="header_all">全部</span>
+    </div>
+    <div class="main">
+        <div class="order_detail">
+            <div class="detail_num container">
+                <div class="detail_l">订单编号：39309409289</div>
+                <div class="detail_r">交易完成</div>
+            </div>
+            <div class="detail_intro">
+                <div class="container">
+                    <div style="overflow: hidden">
+                        <div class="detail_comp">
+                            <a href="#">
+                                <img src="images/detail_comp.png" class="compImg">
+                            </a>
+                        </div>
+                        <div class="detail_txt">
+                            <a href="#">
+                                <p class="txt_t">联想 小新Air 超薄笔记本电脑</p>
+                                <p class="txt_m">颜色：<span>金</span>大小：<span>500G</span></p>
+                            </a>
+                        </div>
+                        <div class="detail_price">
+                            <div class="c3232">￥ 5200.00</div>
+                            <div class="cbbbb">￥ 5200.00</div>
+                            <div class="cbbbb trmt">x1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_count c3232 container">
+                <div class="">
+                    <p>
+                        共 <span>1</span>件商品，合计：￥ <span class="fz34">5200.00</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bar"></div>
+            <div class="detail_btn container">
+                <span class="delete_btn c3232">删除订单</span>
+                <span class="evaluate_btn">评价</span>
+            </div>
+            <div class="lace"></div>
+        </div>
+        <div class="order_detail">
+            <div class="detail_num container">
+                <div class="detail_l">订单编号：39309409289</div>
+                <div class="detail_r">交易完成</div>
+            </div>
+            <div class="detail_intro">
+                <div class="container">
+                    <div style="overflow: hidden">
+                        <div class="detail_comp">
+                            <a href="#">
+                                <img src="images/detail_jianpan.png" class="jianpanImg">
+                            </a>
+                        </div>
+                        <div class="detail_txt">
+                            <a href="#">
+                                <p class="txt_t">小米生态链悦米机械键盘87键</p>
+                                <p class="txt_m">颜色：<span>白</span></p>
+                            </a>
+                        </div>
+                        <div class="detail_price">
+                            <div class="c3232">￥ 239.00</div>
+                            <div class="cbbbb">￥ 599.00</div>
+                            <div class="cbbbb trmt">x1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_count c3232 container">
+                <div class="">
+                    <p>
+                        共 <span>1</span>件商品，合计：￥ <span class="fz34">239.00</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bar"></div>
+            <div class="detail_btn container">
+                <span class="delete_btn c3232">删除订单</span>
+                <span class="evaluate_btn">评价</span>
+            </div>
+            <div class="lace"></div>
+        </div>
+        <div class="order_detail">
+            <div class="detail_num container">
+                <div class="detail_l">订单编号：39309409289</div>
+                <div class="detail_r">交易完成</div>
+            </div>
+            <div class="detail_intro">
+                <div class="container">
+                    <div style="overflow: hidden">
+                        <div class="detail_comp">
+                            <a href="#">
+                                <img src="images/detail_erji.png" class="erjiImg">
+                            </a>
+                        </div>
+                        <div class="detail_txt">
+                            <a href="#">
+                                <p class="txt_t">漫步者立体声头戴式蓝牙耳机</p>
+                                <p class="txt_m">颜色：<span>爵士黑</span></p>
+                            </a>
+                        </div>
+                        <div class="detail_price">
+                            <div class="c3232">￥ 2280.00</div>
+                            <div class="cbbbb">￥ 3500.00</div>
+                            <div class="cbbbb trmt">x1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_count c3232 container">
+                <div class="">
+                    <p>
+                        共 <span>1</span>件商品，合计：￥ <span class="fz34">2280.00</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bar"></div>
+            <div class="detail_btn container">
+                <span class="delete_btn c3232">删除订单</span>
+                <span class="evaluate_btn">评价</span>
+            </div>
+            <div class="lace"></div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<script>
+    $('.delete_btn').click(function(){
+        $(this).parent().parent().remove();
+    });
+</script>
+</html>

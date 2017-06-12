@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS实现搜索框文字可删除</title>
+    <style>
+        *:focus {outline: none; }
+        body {width: 400px;margin: 100px auto;}
+        #topsearch {height: 33px;}
+        #topsearch .input {border: 1px solid #77c03a;height: 100%;}
+        #topsearch .input .clear {width: 30px;height: 35px;line-height: 30px;text-align: center;padding-right: 10px;visibility: hidden;opacity: 0.8;color: gray;}
+        #topsearch input[type=text] {height:20px;width: 250px;border: none;padding: 5px;}
+        #topsearch div {float: left;}
+        #topsearch button {width: 100px;height: 35px;background: #77c03a;color: #fff;border: none;}
+    </style>
+</head>
+<body>
+<div id="topsearch">
+    <div class="input"><input type="text" id="search" placeholder="输入内容"><span class="clear" id="delete">×</span></div>
+    <button type="button" name="searchz">Search</button>
+</div>
+<script>
+    document.getElementById("search").addEventListener("keyup", function() {
+        if (this.value.length > 0) {
+            document.getElementById("delete").style.visibility = "visible";
+            document.getElementById("delete").onclick = function() {
+                document.getElementById("search").value = "";
+            }
+        } else {
+            document.getElementById("delete").style.visibility = "hidden";
+        }
+    });
+</script>
+</body>
+</html>

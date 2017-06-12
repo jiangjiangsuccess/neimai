@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内页-1</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/neiye_1.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+    <div class="header">
+        <span></span>
+        <span>商品详情</span>
+    </div>
+    <section class="topBanner clear">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/pic_01_large.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/pic_01_large.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/pic_01_large.png" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <div class="intro">
+        <div class="intro_txt">
+            <a href="#">
+                <p>小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G 256G PCIE固态
+                    硬盘 940MX独显 FHD WIN10)银
+                </p>
+            </a>
+            <div class="intro_origin">
+                <span>¥<span class="fzml price_r">6888.00</span></span>
+            </div>
+            <div class="intro_discount">原价¥8888</div>
+        </div>
+    </div>
+    <!--商品参数部分-->
+    <div class="detail">
+        <div class="ETab">
+            <div class="tab_main">
+                <ul class="clear">
+                    <li class="current">商品</li>
+                    <li class="parameter">参数</li>
+                </ul>
+            </div>
+            <div class="tab_con" >
+                <img src="images/pic_06.png" alt="">
+            </div>
+                <div class="Ptable" style="display:none">
+                    <div class="Ptable_item">
+                        <h3>主体</h3>
+                        <dl>
+                            <dt>型号</dt>
+                            <dd>小米笔记本AIR13.3英寸</dd>
+                            <dt>颜色</dt>
+                            <dd>银色</dd>
+                            <dt>平台</dt>
+                            <dd>Intel</dd>
+                            <dt>翻新类型</dt>
+                            <dd>全新</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>处理器</h3>
+                        <dl>
+                            <dt>CPU类型</dt>
+                            <dd>酷睿双核i5处理器</dd>
+                            <dt>CPU速度</dt>
+                            <dd>最高主频 2.7GHz</dd>
+                            <dt>三级缓存</dt>
+                            <dd>3M</dd>
+                            <dt>核心</dt>
+                            <dd>双核</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>内存</h3>
+                        <dl>
+                            <dt>内存容量</dt>
+                            <dd>8GB</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>硬盘</h3>
+                        <dl>
+                            <dt>硬盘容量</dt>
+                            <dd>其它</dd>
+                            <dt>接口类型</dt>
+                            <dd>其它</dd>
+                            <dt>固态硬盘</dt>
+                            <dd>256GB PCIe × 4 NVMe SSD</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>显卡</h3>
+                        <dl>
+                            <dt>类型</dt>
+                            <dd>独立显卡</dd>
+                            <dt>显示芯片</dt>
+                            <dd>NVIDIA GeForce 940MX 独立显卡</dd>
+                            <dt>显存容量</dt>
+                            <dd>独立1GB</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>光驱</h3>
+                        <dl>
+                            <dt>光驱类型</dt>
+                            <dd>无光驱</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>显示器</h3>
+                        <dl>
+                            <dt>屏幕尺寸</dt>
+                            <dd>13英寸</dd>
+                            <dt>屏幕规格</dt>
+                            <dd>13.3英寸</dd>
+                            <dt>显示比例</dt>
+                            <dd>宽屏16：9</dd>
+                            <dt>物理分辨率</dt>
+                            <dd>1920×1080</dd>
+                            <dt>屏幕类型</dt>
+                            <dd>LED背光</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>通信</h3>
+                        <dl>
+                            <dt>内置蓝牙</dt>
+                            <dd>蓝牙4.0</dd>
+                            <dt>局域网</dt>
+                            <dd>其他</dd>
+                            <dt>无线局域网</dt>
+                            <dd>有</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>端口</h3>
+                        <dl>
+                            <dt>音频端口</dt>
+                            <dd>耳机、麦克风二合一接口</dd>
+                            <dt>其他端口</dt>
+                            <dd>最高主频 2.7GHz</dd>
+                            <dt>USB3.0</dt>
+                            <dd>1个</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>音效系统</h3>
+                        <dl>
+                            <dt>扬声器</dt>
+                            <dd>内置扬声器</dd>
+                            <dt>杜比音效</dt>
+                            <dd>支持</dd>
+                            <dt>内置麦克风</dt>
+                            <dd>有</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>输入设备</h3>
+                        <dl>
+                            <dt>键盘</dt>
+                            <dd>背光键盘</dd>
+                            <dt>触摸板</dt>
+                            <dd>有</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>其它设备</h3>
+                        <dl>
+                            <dt>网络摄像头</dt>
+                            <dd>有</dd>
+                            <dt>摄像头像素</dt>
+                            <dd>100万</dd>
+                            <dt>读卡器</dt>
+                            <dd>无</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>电源</h3>
+                        <dl>
+                            <dt>电池</dt>
+                            <dd>4芯 锂离子电池</dd>
+                            <dt>续航时间</dt>
+                            <dd>>8小时</dd>
+                            <dt>电源适配器</dt>
+                            <dd>100-240V自适应交流电源适配器</dd>
+                        </dl>
+                    </div>
+                    <div class="Ptable_item">
+                        <h3>机器规格</h3>
+                        <dl>
+                            <dt>尺寸</dt>
+                            <dd>309.6*210.9*14.8MM</dd>
+                            <dt>净重</dt>
+                            <dd><1.5kg</dd>
+                        </dl>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--加入购物车页面-->
+    <div class="join">
+        <div class="join_number">
+            <div class="join_quantity">
+                <span class="min"></span>
+                <span class="txt text_box">1</span>
+                <span class="add"></span>
+            </div>
+            <div class="join_color">颜色分类：白色</div>
+        </div>
+        <div class="join_cart">
+            <a href="">加入购物车</a>
+        </div>
+        <div class="join_buy">
+            <a href="firmOrder.html">立即购买</a>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        /*新增*/
+        autoplay:5000,/*自动播发的速度、平率*/
+        autoplayDisableOnInteraction:false/*设着手动滑动后自动播发是否停止*/
+    });
+    function heji(){
+        var price_r=$('.price_r').html();
+        var num=$('.text_box').html();
+        console.log(price_r);
+        console.log(num);
+        var sum=0;
+        sum=sum+(price_r*num);
+        sum=sum.toFixed(2);
+        console.log(sum);
+        //$('.price_t').html(sum);
+    }
+    $(document).ready(function(){
+        //获得文本框对象
+        var t = $(".txt");
+        //数量增加操作
+        $(".add").click(function(){
+            t.html(parseInt(t.html())+1);
+            heji();
+        });
+        //数量减少操作
+        $(".min").click(function(){
+            if (parseInt(t.html())==1){
+                t.html(1);
+            }else{
+                t.html(parseInt(t.html())-1);
+            }
+            heji();
+        });
+    });
+    //商品参数页面
+    $(".parameter").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".Ptable").css("display","block");
+        $(".tab_con").css("display","none");
+        $(".current").css("color","#666666").css("border-bottom","none");
+    });
+    $(".current").click(function(){
+        $(this).css("color","#1296e2").css("border-bottom","2px solid #1296e2");
+        $(".tab_con").css("display","block");
+        $(".parameter").css("color","#666666").css("border-bottom","none");
+        $(".Ptable").css("display","none");
+    });
+</script>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精锐秒杀</title>
+    <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/miaosha.css">
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="neiye_1.html">
+                    <img src="images/ms_comp.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_1.html">
+                    <div class="ware_txt">
+                        <p>联想 小新Air 超薄笔记本电脑</p>
+                        <div class="ware_size">
+                            <span>12.2英寸</span>
+                            <span>500GB</span>
+                        </div>
+                    </div>
+                </a>
+                <div style="overflow: hidden">
+                    <div class="ware_price">
+                        <div>库存<span>34</span>件</div>
+                        <div><span class="price_l">¥<span>5568.00</span></span></div>
+                        <div>¥<span>5568.00</span></div>
+                    </div>
+                    <div class="spike_btn">
+                        <a href="firmOrder.html">
+                            立即秒杀
+                        </a>
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="neiye_jp.html">
+                    <img src="images/ms_jianpan.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_jp.html">
+                    <div class="ware_txt">
+                        <p>小米 生态链悦米机械键盘 87键
+                            白色 红轴</p>
+                    </div>
+                </a>
+                <div style="overflow: hidden">
+                    <div class="ware_price">
+                        <div>库存<span>88</span>件</div>
+                        <div> <span class="price_l">¥<span>128.00</span></span></div>
+                        <div>¥<span>589.00</span></div>
+                    </div>
+                    <div class="spike_btn">
+                        <a href="firmOrder.html">
+                            立即秒杀
+                        </a>
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="neiye_sb.html">
+                    <img src="images/ms_erji.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_sb.html">
+                    <div class="ware_txt">
+                        <p>漫步者（EDIFIER）W855BT
+                            立体声头戴式蓝牙耳机 爵士黑</p>
+                    </div>
+                </a>
+                <div style="overflow: hidden">
+                    <div class="ware_price">
+                        <div>库存<span>3</span>件</div>
+                        <div> <span class="price_l">¥<span>2280.00</span></span></div>
+                        <div>¥<span>5890.00</span></div>
+                    </div>
+                    <div class="spike_btn">
+                        <a href="firmOrder.html">
+                            立即秒杀
+                        </a>
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="neiye_sb.html">
+                    <img src="images/ms_ipone.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_sb.html">
+                    <div class="ware_txt">
+                        <p>苹果 iPhone 7</p>
+                        <div class="ware_size">
+                            <span>5.5英寸</span>
+                            <span>128GB</span>
+                        </div>
+                    </div>
+                </a>
+                <div style="overflow: hidden">
+                    <div class="ware_price">
+                        <div>库存<span>1</span>件</div>
+                        <div> <span class="price_l">¥<span>4788.00</span></span></div>
+                        <div>¥<span>5890.00</span></div>
+                    </div>
+                    <div class="spike_btn">
+                        <a href="firmOrder.html">
+                            立即秒杀
+                        </a>
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="main_ware">
+            <div class="ware_pic">
+                <a href="neiye_1.html">
+                    <img src="images/ms_comp.png" class="pic_01" alt="">
+                </a>
+            </div>
+            <div class="ware_intro">
+                <a href="neiye_1.html">
+                    <div class="ware_txt">
+                        <p>联想 小新Air 超薄笔记本电脑</p>
+                        <div class="ware_size">
+                            <span>12.2英寸</span>
+                            <span>500GB</span>
+                        </div>
+                    </div>
+                </a>
+                <div style="overflow: hidden">
+                    <div class="ware_price">
+                        <div>库存<span>34</span>件</div>
+                        <div> <span class="price_l">¥<span>5568.00</span></span></div>
+                        <div>¥<span>5568.00</span></div>
+                    </div>
+                    <div class="spike_btn">
+                        <a href="firmOrder.html">
+                            立即秒杀
+                        </a>
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <div class="index">
+                <a href="index.html">
+                    <div></div>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="shopping_cart">
+                <a href="shopping.html">
+                    <div></div>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="draft">
+                <a href="orderManagement.html">
+                    <div></div>
+                    <span>我的订单</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
