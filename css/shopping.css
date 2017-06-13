@@ -162,13 +162,16 @@ body{
 }
 .item_info .item_num{
     float:left;
-    margin-left:2.35rem;
+    margin-left:1.6rem;
 }
 .item_num input[type="button"]{
     background-color:#f8f8f8;
     border:1px solid #cccccc;
     width:0.768rem;height:0.768rem;
-    border-radius:none;
+    border-radius:none!important;
+    -webkit-border-radius:none!important;
+    -moz-border-radius:none!important;
+    -webkit-appearance: none;
 }
 .item_num input[type="text"]{
     width:2.35rem;

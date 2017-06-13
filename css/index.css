@@ -64,15 +64,18 @@ input::-webkit-input-placeholder{color: #999999;}
 }
 .phcolor{color:#999;}
 /*banner部分*/
-.topBanner{overflow: visible;}
+.topBanner{overflow: hidden;}
 .topBanner img{
     width:100%;
     height:5.33rem;
 }
+.swiper-pagination-bullet{
+    margin:0 5px;
+}
 /*nav部分*/
 .nav{
     overflow:hidden;
-    margin-top:1.1rem;
+    margin-top:0.34rem;
     text-align: center;
 }
 .nav ul{

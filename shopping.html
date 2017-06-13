@@ -175,12 +175,12 @@
                         lastLeftObj = null; // 清空上一个左滑的对象
                     }
                     var diffX = e.changedTouches[0].pageX - lastXForMobile;
-                    if (diffX < -10) {
+                    if (diffX < -50) {
                         $(pressedObj).animate({marginLeft:"-2.2rem"}, 500); // 左滑
                         lastLeftObj && lastLeftObj != pressedObj &&
                         $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
                         lastLeftObj = pressedObj; // 记录上一个左滑的对象
-                    } else if (diffX > 10) {
+                    } else if (diffX > 50) {
                         if (pressedObj == lastLeftObj) {
                             $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
                             lastLeftObj = null; // 清空上一个左滑的对象
@@ -202,12 +202,12 @@
                         lastLeftObj = null; // 清空上一个左滑的对象
                     }
                     var diffX = e.clientX - lastX;
-                    if (diffX < -10) {
+                    if (diffX < -50) {
                         $(pressedObj).animate({marginLeft:"-2.2rem"}, 500); // 左滑
                         lastLeftObj && lastLeftObj != pressedObj &&
                         $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
                         lastLeftObj = pressedObj; // 记录上一个左滑的对象
-                    } else if (diffX > 10) {
+                    } else if (diffX > 50) {
                         if (pressedObj == lastLeftObj) {
                             $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
                             lastLeftObj = null; // 清空上一个左滑的对象
@@ -268,7 +268,7 @@
                                     <div class="item_num">
                                         <input class="add" name="" type="button" value="+"/>
                                         <input class="count_num" name="" type="text" value="1"/>
-                                        <input class="min" name="" type="button" value="--"/>
+                                        <input class="min" name="" type="button" value="-"/>
                                     </div>
                                 </div>
                             </div>
@@ -312,7 +312,7 @@
                                     <div class="item_num">
                                         <input class="add" name="" type="button" value="+"/>
                                         <input class="count_num" name="" type="text" value="1"/>
-                                        <input class="min" name="" type="button" value="--"/>
+                                        <input class="min" name="" type="button" value="-"/>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +357,7 @@
                                     <div class="item_num">
                                         <input class="add" name="" type="button" value="+"/>
                                         <input class="count_num" name="" type="text" value="1"/>
-                                        <input class="min" name="" type="button" value="--"/>
+                                        <input class="min" name="" type="button" value="-"/>
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +402,7 @@
                                     <div class="item_num">
                                         <input class="add" name="" type="button" value="+"/>
                                         <input class="count_num" name="" type="text" value="1"/>
-                                        <input class="min" name="" type="button" value="--"/>
+                                        <input class="min" name="" type="button" value="-"/>
                                     </div>
                                 </div>
                             </div>
